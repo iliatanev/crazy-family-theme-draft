@@ -27,8 +27,8 @@
 
         <div class="event-summary">
           <a class="event-summary__date t-center" href="<?php the_permalink() ?>">
-            <span class="event-summary__month">Mar</span>
-            <span class="event-summary__day">25</span>  
+            <span class="event-summary__month"><?php the_time('M'); ?></span>
+            <span class="event-summary__day"><?php the_time('d'); ?></span>  
           </a>
           <div class="event-summary__content">
             <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
@@ -36,7 +36,7 @@
           </div>
         </div>
 
-        <?php }
+        <?php } wp_reset_postdata();
 
       ?>
         <!-- <div class="event-summary">
@@ -50,7 +50,7 @@
           </div>
         </div> -->
         
-        <p class="t-center no-margin"><a href="#" class="btn btn--blue">View All Events</a></p>
+        <p class="t-center no-margin"><a href="<?php echo site_url( '/event' ) ?>" class="btn btn--blue">View All Events</a></p>
 
       </div>
     </div>
@@ -79,7 +79,7 @@
           </div>
         </div>
         
-        <p class="t-center no-margin"><a href="#" class="btn btn--yellow">View All Blog Posts</a></p>
+        <p class="t-center no-margin"><a href="<?php echo site_url( '/blog' ) ?>" class="btn btn--yellow">View All Blog Posts</a></p>
       </div>
     </div>
   </div>
