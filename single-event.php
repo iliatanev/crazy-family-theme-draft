@@ -1,12 +1,9 @@
-<?php 
-
-get_header();
+<?php get_header();
 
 while (have_posts()) {
     
     the_post(); 
-    pageBanner();
-    ?>
+    pageBanner(); ?>
 
   <div class="container container--narrow page-section">
     <div class="metabox metabox--position-up metabox--with-home-link">
@@ -15,18 +12,8 @@ while (have_posts()) {
 
     <div class="generic-content"><?php the_content() ?></div>
 
-  <?php 
-
-    $relatedProgram = get_field('related_program');
-    print_r( $relatedProgram );
-
-   ?>
-
+    <?php $relatedProgram = get_field('related_program');
+          print_r( $relatedProgram ); ?>
   </div>
 
-
-<?php }
-
-get_footer();
-
-?>
+<?php } get_footer(); ?>

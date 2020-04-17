@@ -1,26 +1,22 @@
-<?php 
+<?php get_header(); ?>
 
-get_header(); 
-pageBanner(array(
+<?php pageBanner(array(
   'title' => 'All Programs',
   'subtitle' => 'We have something for everyone '
-));
-?>
-  <div class="container container--narrow page-section">
-  
-<ul class="link-list min-list">
-  <?php 
-   // $wp_query = new WP_Query(array('posts_per_page'=>-1));
+)); ?>
 
-    while ( have_posts() ) : the_post(); ?>
-      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>  
-    <?php endwhile;
-    
-    echo paginate_links();
-  ?>
-</ul>
+<div class="container container--narrow page-section">
+      
+  <ul class="link-list min-list">
+    <?php 
+      // $wp_query = new WP_Query(array('posts_per_page'=>-1));
 
-  </div>
+      while ( have_posts() ) : the_post(); ?>
+        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>  
+      <?php endwhile;
+      
+      echo paginate_links(); ?>
+  </ul>
+</div>
   
-<?php get_footer();
-?>
+<?php get_footer(); ?>

@@ -1,15 +1,12 @@
-<?php 
+<?php get_header(); ?>
 
-get_header(); 
-pageBanner(array(
+<?php pageBanner(array(
   'title' => get_the_archive_title(),
   'subtitle' => get_the_author_description()
-))
-?>
+)); ?>
 
   <div class="container container--narrow page-section">
-  <?php 
-    $wp_query = new WP_Query(array('posts_per_page'=>-1));
+  <?php $wp_query = new WP_Query(array('posts_per_page'=>-1));
 
     while ( $wp_query -> have_posts() ) : $wp_query -> the_post();?>
       <h2 class="headline headline--medium headline--post-title"><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h2>
@@ -24,10 +21,7 @@ pageBanner(array(
       </div>
     <?php endwhile;
     
-  echo paginate_links();
-
-  ?>
+    echo paginate_links(); ?>
   </div>
   
-<?php get_footer();
-?>
+<?php get_footer(); ?>
