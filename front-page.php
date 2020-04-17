@@ -15,9 +15,7 @@
       <div class="full-width-split__inner">
         <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
 
-      <?php 
-
-        $homepageEvents = new WP_Query( array(
+      <?php  $homepageEvents = new WP_Query( array(
           'posts_per_page' => 2,
           'post_type' => 'event',
           'orderby' => 'rand'
@@ -26,36 +24,23 @@
         while ($homepageEvents -> have_posts()) {
           $homepageEvents -> the_post();
           get_template_part('template-parts/content-event');
-        } wp_reset_postdata();
+        } wp_reset_postdata(); ?>
 
-      ?>
-        <!-- <div class="event-summary">
-          <a class="event-summary__date t-center" href="#">
-            <span class="event-summary__month">Apr</span>
-            <span class="event-summary__day">02</span>  
-          </a>
-          <div class="event-summary__content">
-            <h5 class="event-summary__title headline headline--tiny"><a href="#">Quad Picnic Party</a></h5>
-            <p>Live music, a taco truck and more can found in our third annual quad picnic day. <a href="#" class="nu gray">Learn more</a></p>
-          </div>
-        </div> -->
-        
         <p class="t-center no-margin"><a href="<?php echo site_url( '/event' ) ?>" class="btn btn--blue">View All Events</a></p>
-
       </div>
     </div>
     <div class="full-width-split__two">
       <div class="full-width-split__inner">
         <h2 class="headline headline--small-plus t-center">From Our Blogs</h2>
-        <?php 
 
-        $homepageEvents = new WP_Query( array(
+        <?php $homepagePosts = new WP_Query( array(
           'posts_per_page' => 2,
-          'post_type' => 'event'
+          'post_type' => 'post',
+          'orderby' => 'rand'
         ) );
 
-        while ($homepageEvents -> have_posts()) {
-          $homepageEvents -> the_post(); ?>
+        while ( $homepagePosts -> have_posts() ) {
+          $homepagePosts -> the_post(); ?>
 
           <div class="event-summary">
             <a class="event-summary__date event-summary__date--beige t-center" href="<?php the_permalink() ?>">
@@ -68,10 +53,8 @@
             </div>
           </div>
 
+        <?php } wp_reset_postdata(); ?>
 
-        <?php } wp_reset_postdata();
-
-      ?>  
         <!-- <div class="event-summary">
           <a class="event-summary__date event-summary__date--beige t-center" href="#">
             <span class="event-summary__month">Jan</span>
@@ -118,6 +101,4 @@
   </div>
 </div>
 
-<?php get_footer();
-
-?>
+<?php get_footer(); ?>
